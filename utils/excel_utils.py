@@ -5,6 +5,7 @@
 # @time: 2020/11/15 3:02 下午
 
 import xlrd3
+import os
 
 class ExcelUtils:
     def __init__(self,excel_file_path,sheet_name):
@@ -42,5 +43,22 @@ class ExcelUtils:
                 cell_value = self.sheet.cell_value(row_index, col_index)
         return cell_value
 
+    def get_all_data(self):
+        ''' 把excel数据转换成如下格式
+        [{"字段名1":"字段值1","字段名2":"字段值2"...},{}]
+        '''
+        excel_list_data = []
+        row_head = self.sheet.row_values(0)  # ==字典的key
+        for row_num in range(1, self.get_row_count()):
+            row_dict = {}
+            for col_num in range(self.get_column_count()):
+                row_dict[row_head[col_num]] = self.get_merge_cell_value(row_num, col_num)
+            excel_list_data.append(row_dict)
+        return excel_list_data
 
+if __name__=='__main__':
+    file_path = os.path.join( os.path.dirname(__file__),'..','data','testcase_infos.xlsx')
+    excelUtils = ExcelUtils(file_path,'Sheet1')
+    for excel_row in excelUtils.get_all_data():
+        print( excel_row )
 

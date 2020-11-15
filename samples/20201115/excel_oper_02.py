@@ -56,5 +56,6 @@ for row_num in range(1,sheet.nrows):
     for col_num in range(sheet.ncols):
         row_dict[row_head[col_num]] = get_cell_merged_value(row_num,col_num)
     excel_list_data.append(row_dict)
-for data in excel_list_data:
-    print( data )
+print( excel_list_data )
+# for data in excel_list_data:
+#     print( data )
