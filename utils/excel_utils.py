@@ -6,7 +6,6 @@
 
 import xlrd3
 import os
-
 class ExcelUtils:
     def __init__(self,excel_file_path,sheet_name):
         self.excel_file_path = excel_file_path

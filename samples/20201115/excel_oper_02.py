@@ -31,22 +31,22 @@ for i in range(0,9):
 
 # 把excel转换成 [{'事件': '学习python编程', '步骤序号': 'step_01', '步骤操作': '购买微课', '完成情况': 100.0},.....]
 # 步骤一：
-# excel_list_data = []
-# row_head = sheet.row_values(0) # ==字典的key
-# row_dict = {}
-# row_dict[row_head[0]] = get_cell_merged_value(1,0)
-# row_dict[row_head[1]] = get_cell_merged_value(1,1)
-# row_dict[row_head[2]] = get_cell_merged_value(1,2)
-# row_dict[row_head[3]] = get_cell_merged_value(1,3)
-# print( row_dict )
+excel_list_data = []
+row_head = sheet.row_values(0) # ==字典的key
+row_dict = {}
+row_dict[row_head[0]] = get_cell_merged_value(1,0)
+row_dict[row_head[1]] = get_cell_merged_value(1,1)
+row_dict[row_head[2]] = get_cell_merged_value(1,2)
+row_dict[row_head[3]] = get_cell_merged_value(1,3)
+print( row_dict )
 
 # 步骤二：改为循环获取一行
-# excel_list_data = []
-# row_head = sheet.row_values(0) # ==字典的key
-# row_dict = {}
-# for i in range(sheet.ncols):
-#     row_dict[row_head[i]] = get_cell_merged_value(1,i)
-# print( row_dict )
+excel_list_data = []
+row_head = sheet.row_values(0) # ==字典的key
+row_dict = {}
+for i in range(sheet.ncols):
+    row_dict[row_head[i]] = get_cell_merged_value(1,i)
+print( row_dict )
 
 # 步骤三：
 excel_list_data = []

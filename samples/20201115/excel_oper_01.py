@@ -5,7 +5,6 @@
 # @time: 2020/11/15 11:50 上午
 
 import xlrd3
-
 workbook = xlrd3.open_workbook('test_data.xlsx')
 sheet = workbook.sheet_by_name('Sheet1')
 print( sheet.cell_value(0,3) )
