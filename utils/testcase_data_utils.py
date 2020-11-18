@@ -39,4 +39,5 @@ if __name__=='__main__':
     #     print( testcase )
     for t in test_case_lists:
         print( t )
+    print(test_case_lists[0]['case_step'][0]['请求参数(get)'])
 
