@@ -14,3 +14,7 @@
 3、requests_utils模块
 request_by_step --》request --》__get/__post
 4、excel为后续课程准备 增加了字段：取值方式	取值代码	取值变量
+
+20201125:
+1、利用jsonpath取出上一个接口的返回值存放到临时字典
+2、利用re 和replace 完成 下一个接口的参数使用上一个接口的返回值作为参数值
