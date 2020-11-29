@@ -26,7 +26,7 @@ class TestApiCase(paramunittest.ParametrizedTestCase):
         self._testMethodName = self.case_step[0].get('测试用例编号')
         self._testMethodDoc = self.case_step[0].get('测试用例名称')
         test_result = RequestsUtils().request_by_step(self.case_step)
-        self.assertTrue( test_result['check_result'] )
+        self.assertTrue( test_result['check_result'],test_result['message'] )
 
 if __name__=='__main__':
     unittest.main(verbosity=2)

@@ -27,6 +27,7 @@ class CheckUtils:
             'response_headers':self.response_data.headers,
             'response_body':self.response_data.text,
             'response_url':self.response_data.url,
+            'message':'',
             'check_result': True
         }
         self.fail_result = {
@@ -36,6 +37,7 @@ class CheckUtils:
             'response_headers':self.response_data.headers,
             'response_body':self.response_data.text,
             'response_url':self.response_data.url,
+            'message': '',
             'check_result': False
         }
 
