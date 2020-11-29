@@ -18,8 +18,12 @@ class ConfigUtils:
     def HOSTS(self):
         hosts_value = self.cfg.get('default','hosts')
         return hosts_value
+    @property
+    def REPORT_PATH(self):
+        report_path_value = self.cfg.get('path','REPORT_PATH')
+        return report_path_value
 
 local_config = ConfigUtils()
 
 if __name__=='__main__':
-    print( local_config.HOSTS )
+    print( local_config.REPORT_PATH )
