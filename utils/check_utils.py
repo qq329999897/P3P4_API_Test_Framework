@@ -96,8 +96,8 @@ class CheckUtils:
             return self.fail_result
 
     def run_check(self,check_type,check_data):
-        if check_type=='无' or check_data == '':
-            return self.check_rules[check_type]()
+        if check_type=='none' or check_data == '':
+            return self.check_rules['none']()
         else:
             return self.check_rules[check_type](check_data)
 
