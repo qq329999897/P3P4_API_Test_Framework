@@ -10,7 +10,7 @@ from utils import HTMLTestReportCN
 from utils.config_utils import local_config
 from nb_log import LogManager
 
-logger = LogManager('P3P4_API_TEST').get_logger_and_add_handlers(is_add_stream_handler=True,log_filename='api_test.log')
+logger = LogManager('P3P4_API_TEST').get_logger_and_add_handlers(is_add_stream_handler=True,log_filename=local_config.LOG_NAME)
 current_path = os.path.dirname(__file__)
 case_path = os.path.join( current_path,'..','testcases')
 result_path = os.path.join( current_path,'..',local_config.REPORT_PATH )

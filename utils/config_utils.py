@@ -6,6 +6,7 @@
 
 import os
 import configparser
+import time
 
 current_path = os.path.dirname(__file__)
 config_file_path = os.path.join( current_path,'..','conf','localconfig.ini' )
@@ -22,8 +23,12 @@ class ConfigUtils:
     def REPORT_PATH(self):
         report_path_value = self.cfg.get('path','REPORT_PATH')
         return report_path_value
+    @property
+    def LOG_NAME(self):
+        log_name_value = '%s_%s.log'%(self.cfg.get('default','log_name'),time.strftime('%Y_%m_%d'))
+        return log_name_value
 
 local_config = ConfigUtils()
 
 if __name__=='__main__':
-    print( local_config.REPORT_PATH )
+    print( local_config.LOG_NAME )

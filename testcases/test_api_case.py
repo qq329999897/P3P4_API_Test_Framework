@@ -10,10 +10,11 @@ import warnings
 import paramunittest
 from utils.testcase_data_utils import TestcaseDataUtils
 from utils.requests_utils import RequestsUtils
+from utils.config_utils import local_config
 
 from nb_log import LogManager
 
-logger = LogManager('P3P4_API_TEST').get_logger_and_add_handlers(is_add_stream_handler=True,log_filename='api_test.log')
+logger = LogManager('P3P4_API_TEST').get_logger_and_add_handlers(is_add_stream_handler=True,log_filename=local_config.LOG_NAME)
 test_case_lists = TestcaseDataUtils().convert_testcase_data_to_list()
 
 @paramunittest.parametrized(

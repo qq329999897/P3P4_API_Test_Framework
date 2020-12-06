@@ -6,19 +6,20 @@
 
 import os
 from utils.excel_utils import ExcelUtils
+from utils.mysql_utils import MysqlUtils
 
 excel_file_path = os.path.join( os.path.dirname(__file__),'..','data','testcase_infos.xlsx')
 excel_sheet_name = 'Sheet1'
 
 class TestcaseDataUtils:
     def __init__(self):
-        self.excel_data = ExcelUtils(excel_file_path=excel_file_path,sheet_name=excel_sheet_name)
-
+        # self.test_data_obj = ExcelUtils(excel_file_path=excel_file_path,sheet_name=excel_sheet_name)
+        self.test_data_obj = MysqlUtils()
 
     def convert_testcase_data_to_dict(self):
         ''' 把excel的所有原始数据转换成符合框架需要的测试用例业务数据 '''
         testcase_dict = {}
-        for row_data in self.excel_data.get_all_data():
+        for row_data in self.test_data_obj.get_all_data():
             if row_data['用例执行'] == '是':
                 testcase_dict.setdefault(row_data['测试用例编号'],[]).append(row_data)
         return testcase_dict
