@@ -7,6 +7,7 @@
 import os
 import unittest
 from utils import HTMLTestReportCN
+from utils.email_utils import EmailUtils
 from utils.config_utils import local_config
 from nb_log import LogManager
 
@@ -35,5 +36,6 @@ runner = HTMLTestReportCN.HTMLTestRunner(stream=report_html_obj,
 logger.info('接口自动化测试开始执行')
 runner.run( load_testcase() )
 report_html_obj.close()
+EmailUtils('微信公共号接口测试报告',report_html_path).send_mail()
 
 

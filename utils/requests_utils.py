@@ -71,7 +71,9 @@ class RequestsUtils:
             response = self.session.post(url=url,
                                          headers=requests_info['请求头部信息'],
                                          params=json.loads(requests_info['请求参数(get)']),
-                                         json = json.loads(requests_info['请求参数(post)'])
+                                         data = json.dumps(json.loads(requests_info['请求参数(post)']),
+                                                           ensure_ascii=False).encode('utf-8')
+                                         # json = json.loads(requests_info['请求参数(post)'])
                                         )
             response.encoding = response.apparent_encoding
             if requests_info['取值方式'] == 'jsonpath取值':
