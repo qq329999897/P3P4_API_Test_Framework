@@ -5,6 +5,8 @@
 # @time: 2020/11/29 4:28 下午
 
 import os
+import sys
+sys.path.append( os.path.join(os.path.dirname(__file__),'..') )
 import unittest
 from utils import HTMLTestReportCN
 from utils.email_utils import EmailUtils
@@ -36,6 +38,6 @@ runner = HTMLTestReportCN.HTMLTestRunner(stream=report_html_obj,
 logger.info('接口自动化测试开始执行')
 runner.run( load_testcase() )
 report_html_obj.close()
-EmailUtils('微信公共号接口测试报告',report_html_path).send_mail()
+# EmailUtils('微信公共号接口测试报告',report_html_path).send_mail()
 
 
