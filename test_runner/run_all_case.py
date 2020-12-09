@@ -6,6 +6,7 @@
 
 import os
 import sys
+import shutil
 sys.path.append( os.path.join(os.path.dirname(__file__),'..') )
 import unittest
 from utils import HTMLTestReportCN
@@ -13,7 +14,8 @@ from utils.email_utils import EmailUtils
 from utils.config_utils import local_config
 from nb_log import LogManager
 
-logger = LogManager('P3P4_API_TEST').get_logger_and_add_handlers(is_add_stream_handler=True,log_filename=local_config.LOG_NAME)
+logger = LogManager('P3P4_API_TEST').get_logger_and_add_handlers\
+    (is_add_stream_handler=True,log_filename=local_config.LOG_NAME)
 current_path = os.path.dirname(__file__)
 case_path = os.path.join( current_path,'..','testcases')
 result_path = os.path.join( current_path,'..',local_config.REPORT_PATH )
@@ -39,5 +41,8 @@ logger.info('接口自动化测试开始执行')
 runner.run( load_testcase() )
 report_html_obj.close()
 # EmailUtils('微信公共号接口测试报告',report_html_path).send_mail()
-
-
+# os.system('cp -f %s /Users/liuqingjun/software/jenkins/workspace/p3p4_demo_03/接口自动化测试报告.html'
+#           %report_html_path)
+# os.system('cp -f %s %s/接口自动化测试报告.html'%(report_html_path,sys.argv[1]))
+# windows操作系统 可能用 os.sysytem('copy....')不能复制
+shutil.copyfile(report_html_path,'%s/接口自动化测试报告.html'%sys.argv[1])

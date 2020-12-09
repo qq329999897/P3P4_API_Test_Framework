@@ -49,9 +49,10 @@ class RequestsUtils:
             result = {'code': 3, 'message': '调用接口 [%s] 时发生Request异常,异常原因：%s' % (requests_info['接口名称'], e.__str__()),'check_result': False}
             logger.error('调用接口 [%s] 时发生Request异常,异常原因：%s' % (requests_info['接口名称'], e.__str__()))
         except IndexError as e:
-            result = {'code': 3, 'message': '根据 %s 方式不能完成从响应正文截取，异常原因：%s' % (requests_info['取值方式'], e.__str__()),
-                      'check_result': False}
-            logger.error('根据 %s 方式不能完成从响应正文截取，异常原因：%s' % (requests_info['取值方式'],e.__str__()))
+            result = {'code': 3, 'message': '根据 %s 方式不能完成从响应正文截取，异常原因：%s' %
+                        (requests_info['取值方式'], e.__str__()),'check_result': False}
+            logger.error('根据 %s 方式不能完成从响应正文截取，异常原因：%s' %
+                         (requests_info['取值方式'],e.__str__()))
         except Exception as e:
             result = {'code': 3, 'message': '调用接口 [%s] 时发生异常,异常原因：%s' % (requests_info['接口名称'], e.__str__()),'check_result': False}
             logger.error('调用接口 [%s] 时发生异常,异常原因：%s' % (requests_info['接口名称'], e.__str__()))

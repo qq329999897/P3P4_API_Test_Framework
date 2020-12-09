@@ -6,6 +6,7 @@
 
 from nb_log import LogManager
 
-logger = LogManager('lalala').get_logger_and_add_handlers(is_add_stream_handler=True,log_filename='ha.log')
+logger = LogManager('newdream').get_logger_and_add_handlers(is_add_stream_handler=True,
+                                                          log_filename='newdream.log')
 
 logger.info('蓝色')

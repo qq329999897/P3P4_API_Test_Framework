@@ -59,10 +59,12 @@ class CheckUtils:
             else:
                 tmp_result.append( self.fail_result )
         if self.fail_result in tmp_result:
-            logger.info('测试实际结果: %s 测试期望结果：%s 不一致，检测失败'%(json.dumps(actual_result,ensure_ascii=False),check_data))
+            logger.info('测试实际结果: %s 测试期望结果：%s 不一致，检测失败'%
+                        (json.dumps(actual_result,ensure_ascii=False),check_data))
             return self.fail_result
         else:
-            logger.info('测试实际结果: %s 测试期望结果：%s 一致，检测通过'%(json.dumps(actual_result,ensure_ascii=False),check_data))
+            logger.info('测试实际结果: %s 测试期望结果：%s 一致，检测通过'%
+                        (json.dumps(actual_result,ensure_ascii=False),check_data))
             return self.pass_result
 
     def header_key_check(self,check_data):
@@ -80,10 +82,12 @@ class CheckUtils:
             else:
                 tmp_result.append( self.fail_result )
         if self.fail_result in tmp_result:
-            logger.info('测试实际结果: %s 测试期望结果：%s 不一致，检测失败'%(json.dumps(actual_result,ensure_ascii=False),check_data))
+            logger.info('测试实际结果: %s 测试期望结果：%s 不一致，检测失败'%
+                        (json.dumps(actual_result,ensure_ascii=False),check_data))
             return self.fail_result
         else:
-            logger.info('测试实际结果: %s 测试期望结果：%s 一致，检测通过' % (json.dumps(actual_result,ensure_ascii=False), check_data))
+            logger.info('测试实际结果: %s 测试期望结果：%s 一致，检测通过' %
+                        (json.dumps(actual_result,ensure_ascii=False), check_data))
             return self.pass_result
 
     def header_key_value_check(self,check_data):
@@ -94,10 +98,12 @@ class CheckUtils:
 
     def response_code_check(self,check_data):
         if self.response_data.status_code == int(check_data):
-            logger.info('实际响应状态码：%s 期望结果：%s 一致，检测通过' %(str(self.response_data.status_code),check_data))
+            logger.info('实际响应状态码：%s 期望结果：%s 一致，检测通过'
+                        %(str(self.response_data.status_code),check_data))
             return self.pass_result
         else:
-            logger.info('实际响应状态码：%s 期望结果：%s 不一致，检测失败' %(str(self.response_data.status_code),check_data))
+            logger.info('实际响应状态码：%s 期望结果：%s 不一致，检测失败'
+                        %(str(self.response_data.status_code),check_data))
             return self.fail_result
 
     def regexp_check(self,check_data):
